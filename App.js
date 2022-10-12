@@ -6,11 +6,8 @@ export default function App() {
   return (
     <>
     <View style={styles.container}> 
-      <View style={styles.city}><Text  style={styles.cityName}>Slider</Text></View>
- 
-      <ScrollView style={styles.scrollView}>
-        <Text style={styles.cityName}>step1.</Text>
-        <ScrollView horizontal pagingEnabled style={styles.box1}>
+      <View style={styles.city}><Text  style={styles.cityName}>날씨</Text></View>
+        <ScrollView horizontal pagingEnabled showsHorizontalScrollIndicator={false} style={styles.box1}>
           <View style={styles.day}>
             <Text style={styles.bText}>27˚</Text>
             <Text style={styles.desc}>sunny</Text>
@@ -32,53 +29,6 @@ export default function App() {
             <Text style={styles.desc}>sunny</Text>
           </View>
         </ScrollView>
-        <Text style={styles.cityName}>step2.</Text>
-        <ScrollView horizontal pagingEnabled showsHorizontalScrollIndicator={false} style={styles.box2}>
-          <View style={styles.day}>
-            <Text style={styles.bText}>27˚</Text>
-            <Text style={styles.desc}>sunny</Text>
-          </View>
-          <View style={styles.day}>
-            <Text style={styles.bText}>27˚</Text>
-            <Text style={styles.desc}>sunny</Text>
-          </View>
-          <View style={styles.day}>
-            <Text style={styles.bText}>27˚</Text>
-            <Text style={styles.desc}>sunny</Text>
-          </View>
-          <View style={styles.day}>
-            <Text style={styles.bText}>27˚</Text>
-            <Text style={styles.desc}>sunny</Text>
-          </View>
-          <View style={styles.day}>
-            <Text style={styles.bText}>27˚</Text>
-            <Text style={styles.desc}>sunny</Text>
-          </View>
-        </ScrollView>
-        <Text style={styles.cityName}>step3.</Text>
-        <ScrollView horizontal style={styles.box3}>
-          <View style={styles.day2}>
-            <Text style={styles.bText}>27˚</Text>
-            <Text style={styles.desc}>sunny</Text>
-          </View>
-          <View style={styles.day2}>
-            <Text style={styles.bText}>27˚</Text>
-            <Text style={styles.desc}>sunny</Text>
-          </View>
-          <View style={styles.day2}>
-            <Text style={styles.bText}>27˚</Text>
-            <Text style={styles.desc}>sunny</Text>
-          </View>
-          <View style={styles.day2}>
-            <Text style={styles.bText}>27˚</Text>
-            <Text style={styles.desc}>sunny</Text>
-          </View>
-          <View style={styles.day2}>
-            <Text style={styles.bText}>27˚</Text>
-            <Text style={styles.desc}>sunny</Text>
-          </View>
-        </ScrollView>
-      </ScrollView>
     </View>
     </>
   );
@@ -108,19 +58,8 @@ const styles = StyleSheet.create({
   box1:{
     backgroundColor:'tomato',
   },
-  box2:{
-    backgroundColor:'pink',
-  },
-  box3:{
-    backgroundColor:'yellow',
-  },
   day:{
-    width:windowWidth - 40,
-    alignItems:"center",
-    justifyContent:'center',
-  },
-  day2:{
-    flex:1,
+    width:windowWidth,
     alignItems:"center",
     justifyContent:'center',
   },
