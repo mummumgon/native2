@@ -12,6 +12,7 @@ export default function App() {
   const [weather , setWeather] = useState([]);
   
   const API_KEY = 'd4ec3fd563712d1a6d4a6d4dc07379af';
+  const week = ['일', '월', '화', '수', '목', '금', '토'];
   const icon ={
     Clear:'day-sunny',
     Clouds:'cloudy',
@@ -42,15 +43,22 @@ export default function App() {
         <ScrollView horizontal pagingEnabled showsHorizontalScrollIndicator={false} contentContainerStyle={styles.scrollView}>
           {weather.length === 0 ? 
           <View style={styles.day}>
-              <ActivityIndicator size="large" color="#fff" />
+              <ActivityIndicator size={100} color="#fff" />
           </View>:
-          weather.map((data,index) => 
-          <View key={index} style={styles.day}>
-            <View style={{flexDirection:'row',width:'90%',justifyContent:'space-between'}}>
+          weather.map((data,index) =>
+          <View key={index} style={{...styles.day,padding:20}}>
+            <Text style={{...styles.desc, fontSize:14}}>
+              {(new Date(data.dt*1000)).getFullYear()}/
+              {(new Date(data.dt*1000)).getMonth()+1}/
+              {(new Date(data.dt*1000)).getDate()}
+              ({week[(new Date(data.dt*1000)).getDay()]})
+            </Text>
+            <View style={{flexDirection:'row',width:'100%',justifyContent:'space-between'}}>
               <Text style={styles.bText}>{data.temp.day.toFixed(1)}</Text>
               <Fontisto name={icon[data.weather[0].main]} size={24} color="#fff" style={{marginTop:20, fontSize:50}}/>
             </View>
-            <Text style={styles.desc}>{data.weather[0].description}</Text>
+            <Text style={styles.desc}>{data.weather[0].main}</Text>
+            <Text style={{...styles.desc,fontSize:14}}>{data.weather[0].description}</Text>
           </View>)}
         </ScrollView>
     </View> : <Text>Loding...</Text>}
@@ -77,7 +85,6 @@ const styles = StyleSheet.create({
     color:'#fff',
   },
   scrollView:{
-    paddingHorizontal: 20,
   },
   box1:{
     backgroundColor:'tomato',
